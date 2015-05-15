@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development do
+  gem 'guard-cucumber', require: false
   gem 'guard-rspec', require: false
 end
 
