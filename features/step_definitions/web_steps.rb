@@ -2,6 +2,10 @@ Given 'I am on the home page' do
   visit '/'
 end
 
+Given 'I am on the passcode entry page' do
+  visit new_passcode_path
+end
+
 When 'I click "$target"' do |target|
   click_link_or_button target
 end
@@ -18,4 +22,8 @@ end
 
 Then 'I should be on the passcode entry page' do
   expect(page.current_path).to be == new_passcode_path
+end
+
+Then 'I should be on the passcode index page' do
+  expect(page.current_path).to be == passcodes_path
 end

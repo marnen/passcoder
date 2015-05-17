@@ -1,0 +1,6 @@
+= form_for @passcode do |f|
+  = f.label :code, _('Passcode')
+  = f.text_field :code
+  = f.label :xm, _('XM')
+  = f.number_field :xm
+  = f.submit _('Save')
