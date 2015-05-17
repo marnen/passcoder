@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'gettext_i18n_rails'
 gem 'haml'
+gem 'responders'
 
 group :development do
   gem 'gettext', '>= 3.0.2', require: false
