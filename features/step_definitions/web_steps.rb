@@ -15,3 +15,7 @@ end
 When 'I go to the login page' do
   visit new_user_session_path
 end
+
+Then 'I should be on the passcode entry page' do
+  expect(page.current_path).to be == new_passcode_path
+end
