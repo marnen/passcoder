@@ -25,4 +25,5 @@ Scenario Outline: Save passcode information
 
   Examples:
     | passcode | field | value |
+    | 5tesla2  | AP    | 150   |
     | 1a2b3c   | XM    | 200   |

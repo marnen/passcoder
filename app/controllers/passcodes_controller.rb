@@ -11,6 +11,6 @@ class PasscodesController < ApplicationController
   end
 
   def create
-    respond_with Passcode.create! params.require(:passcode).permit(:code, :xm)
+    respond_with Passcode.create! params.require(:passcode).permit(:code, :ap, :xm)
   end
 end
