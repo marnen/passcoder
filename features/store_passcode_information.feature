@@ -16,11 +16,13 @@ Scenario Outline: Save passcode information
   And I am on the passcode entry page
   When I fill in the following:
     | Passcode | <passcode> |
-    | XM       | <xm>       |
+    | <field>  | <value>    |
   And I click "Save"
   Then I should be on the passcode index page
-  And I should see passcode "<passcode>" with <xm> XM
+  And I should see the following passcode:
+    | code    | <passcode> |
+    | <field> | <value>    |
 
   Examples:
-    | passcode | xm  |
-    | 1a2b3c   | 200 |
+    | passcode | field | value |
+    | 1a2b3c   | XM    | 200   |
