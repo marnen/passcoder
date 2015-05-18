@@ -1,9 +1,5 @@
-Given 'I am on the home page' do
-  visit '/'
-end
-
-Given 'I am on the passcode entry page' do
-  visit new_passcode_path
+Given 'I am on $page_name' do |page_name|
+  visit path_to page_name
 end
 
 When 'I click "$target"' do |target|
@@ -16,14 +12,10 @@ When 'I fill in the following:' do |table|
   end
 end
 
-When 'I go to the login page' do
-  visit new_user_session_path
+When 'I go to $page_name' do |page_name|
+  visit path_to page_name
 end
 
-Then 'I should be on the passcode entry page' do
-  expect(page.current_path).to be == new_passcode_path
-end
-
-Then 'I should be on the passcode index page' do
-  expect(page.current_path).to be == passcodes_path
+Then 'I should be on $page_name' do |page_name|
+  expect(page.current_path).to be == path_to(page_name)
 end
