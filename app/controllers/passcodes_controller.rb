@@ -11,6 +11,7 @@ class PasscodesController < ApplicationController
   end
 
   def create
-    respond_with Passcode.create! params.require(:passcode).permit Passcode.permitted_params
+    passcode = CreatePasscodeService.call params.require(:passcode).permit(CreatePasscodeService.permitted_params).symbolize_keys
+    respond_with passcode
   end
 end
