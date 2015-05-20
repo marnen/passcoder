@@ -15,7 +15,7 @@ RSpec.describe Passcode, type: :model do
   describe '.permitted_params' do
     subject { Passcode.permitted_params }
 
-    [:code, :ap, :xm].each do |field|
+    [:code, :ap, :xm, :resonator_level, :resonator_quantity].each do |field|
       it { should include field }
     end
   end

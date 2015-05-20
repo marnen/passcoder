@@ -2,7 +2,7 @@ class PasscodesController < ApplicationController
   responders :flash, :collection
 
   def index
-    @passcodes = Passcode.all
+    @passcodes = Passcode.includes :line_items
     respond_with @passcodes
   end
 
