@@ -1,7 +1,6 @@
 class Passcode < ActiveRecord::Base
-  attr_accessor :resonator_level, :resonator_quantity
-
-  has_many :line_items
+  has_many :line_items, inverse_of: :passcode
+  accepts_nested_attributes_for :line_items, reject_if: proc {|attributes| attributes.values.any? &:blank? }
 
   validates :code, presence: true, uniqueness: true
   validates :ap, numericality: true

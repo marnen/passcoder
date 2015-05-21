@@ -28,19 +28,22 @@ Scenario Outline: Save passcode AP and XM
     | 5tesla2  | AP    | 150   |
     | 1a2b3c   | XM    | 200   |
 
-Scenario Outline: Save passcode resonators
+Scenario Outline: Save passcode gear
   Given no passcodes exist
+  And an item exists named "<item>"
   And I am on the passcode entry page
   When I fill in the following:
-    | Passcode           | <passcode> |
-    | Resonator level    | <level>    |
-    | Resonator quantity | <quantity> |
+    | Passcode | <passcode> |
+    | Item     | <item>     |
+    | Level    | <level>    |
+    | Quantity | <quantity> |
   And I click "Save"
   Then I should be on the passcode index page
   And I should see the following passcode:
-    | code     | <passcode> |
-    | R<level> | <quantity> |
+    | code                  | <passcode> |
+    | <abbreviation><level> | <quantity> |
 
   Examples:
-    | passcode | level | quantity |
-    | xyz987   | 3     | 6        |
+    | passcode | item        | abbreviation | level | quantity |
+    | xyz987   | Resonator   | R            | 3     | 6        |
+    | 123abc   | XMP Burster | X            | 2     | 10       |

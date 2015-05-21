@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Passcode, type: :model do
   describe 'associations' do
-    it { should have_many :line_items }
+    it { should have_many(:line_items).inverse_of :passcode }
+    it { should accept_nested_attributes_for :line_items }
   end
 
   describe 'validations' do

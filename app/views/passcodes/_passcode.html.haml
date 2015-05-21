@@ -3,6 +3,7 @@
   .ap= _('%{ap} AP') % {ap: passcode.ap}
   .xm= _('%{xm} XM') % {xm: passcode.xm}
   - passcode.line_items.each do |line_item|
-    %div{class: "r#{line_item.item_level}"}
+    - abbreviation = line_item.item.name[0]
+    %div{class: "#{abbreviation.downcase}#{line_item.item_level}"}
       = line_item.quantity
-      == R#{line_item.item_level}
+      == #{abbreviation}#{line_item.item_level}

@@ -5,9 +5,12 @@
   = f.number_field :ap
   = f.label :xm, _('XM')
   = f.number_field :xm
-  = f.submit _('Save')
+  = f.fields_for :line_items do |li|
+    = li.label :item_id
+    = li.collection_select :item_id, @items, :id, :name
+    = li.label :item_level, _('Level')
+    = li.number_field :item_level
+    = li.label :quantity
+    = li.number_field :quantity
 
-  = f.label :resonator_level
-  = f.number_field :resonator_level
-  = f.label :resonator_quantity
-  = f.number_field :resonator_quantity
+  = f.submit _('Save')
