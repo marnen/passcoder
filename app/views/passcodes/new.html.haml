@@ -7,7 +7,7 @@
   = f.number_field :xm
   = f.fields_for :line_items do |li|
     = li.label :item_id
-    = li.collection_select :item_id, @items, :id, :name
+    = render_cell :item_selector, :show, form: li
     = li.label :item_level, _('Level')
     = li.number_field :item_level
     = li.label :quantity

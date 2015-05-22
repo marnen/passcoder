@@ -9,7 +9,6 @@ class PasscodesController < ApplicationController
   def new
     @passcode = Passcode.new
     @passcode.line_items.build
-    @items = Item.all
   end
 
   def create
