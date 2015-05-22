@@ -7,6 +7,6 @@ class Passcode < ActiveRecord::Base
   validates :xm, numericality: true
 
   def self.permitted_params
-    [:code, :ap, :xm]
+    @permitted_params ||= [:code, :ap, :xm, {line_items_attributes: LineItem.permitted_params}]
   end
 end

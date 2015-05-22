@@ -16,8 +16,16 @@ RSpec.describe Passcode, type: :model do
   describe '.permitted_params' do
     subject { Passcode.permitted_params }
 
+    before(:each) { Passcode.class_eval { @permitted_params = nil } } # TODO: Yuck! Is there another way to disable memoization?
+
     [:code, :ap, :xm].each do |field|
       it { should include field }
+    end
+
+    it 'includes LineItem.permitted_params for nested attributes' do
+      attributes = (1..3).collect { FFaker::Lorem.word.to_sym }
+      allow(LineItem).to receive(:permitted_params).and_return attributes
+      expect(subject).to include line_items_attributes: attributes
     end
   end
 end
