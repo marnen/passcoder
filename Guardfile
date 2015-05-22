@@ -32,6 +32,8 @@
 #  * zeus: 'zeus rspec' (requires the server to be started separately)
 #  * 'just' rspec: 'rspec'
 
+require 'active_support/inflector'
+
 guard :rspec, cmd: "bundle exec rspec" do
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
@@ -77,10 +79,25 @@ guard :rspec, cmd: "bundle exec rspec" do
 end
 
 guard "cucumber" do
+  def features_for(namespaced_controller)
+    controller_name = namespaced_controller.split('/').last
+    filenames = Dir[File.join 'features', '**', '*.feature'].select do |file|
+      file =~ %r{[\b_](#{controller_name}|#{ActiveSupport::Inflector.singularize controller_name})[\b_]}
+    end
+    filenames << 'features' if filenames.empty?
+    filenames
+  end
+
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+$})          { "features" }
 
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) do |m|
     Dir[File.join("**/#{m[1]}.feature")][0] || "features"
+  end
+  watch(%r{^app/controllers/(.+)_controller\.rb$}) do |m|
+    features_for m[1]
+  end
+  watch(%r{^app/views/(.+)/}) do |m|
+    features_for m[1]
   end
 end
