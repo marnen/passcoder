@@ -61,6 +61,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'launchy'
