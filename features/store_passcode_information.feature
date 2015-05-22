@@ -5,15 +5,10 @@ Feature: Store passcode information
 
 Background:
   Given I am logged in
-
-Scenario: Passcode entry link from homepage
-  Given I am on the home page
-  When I click "Enter passcode"
-  Then I should be on the passcode entry page
+  And no passcodes exist
 
 Scenario Outline: Save passcode AP and XM
-  Given no passcodes exist
-  And I am on the passcode entry page
+  Given I am on the passcode entry page
   When I fill in the following:
     | Passcode | <passcode> |
     | <field>  | <value>    |
@@ -29,8 +24,7 @@ Scenario Outline: Save passcode AP and XM
     | 1a2b3c   | XM    | 200   |
 
 Scenario Outline: Save passcode gear
-  Given no passcodes exist
-  And an item exists named "<item>"
+  Given an item exists named "<item>"
   And I am on the passcode entry page
   When I fill in the following:
     | Passcode | <passcode> |
