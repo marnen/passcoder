@@ -5,12 +5,14 @@
   = f.number_field :ap
   = f.label :xm, _('XM')
   = f.number_field :xm
-  = f.fields_for :line_items do |li|
-    = li.label :item_id
-    = render_cell :item_selector, :show, form: li
-    = li.label :item_level, _('Level')
-    = li.number_field :item_level
-    = li.label :quantity
-    = li.number_field :quantity
+  .line_item
+    = f.fields_for :line_items, child_index: '' do |li|
+      = li.label :item_id
+      = render_cell :item_selector, :show, form: li
+      = li.label :item_level, _('Level')
+      = li.number_field :item_level
+      = li.label :quantity
+      = li.number_field :quantity
+  = f.button _('More'), class: 'new_line_item'
 
   = f.submit _('Save')
