@@ -43,6 +43,7 @@ group :development do
   gem 'guard-cucumber', require: false
   gem 'guard-rspec', require: false
   gem 'ruby_parser', require: false
+  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
