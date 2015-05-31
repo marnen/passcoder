@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518222824) do
+ActiveRecord::Schema.define(version: 20150531191042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "items", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "abbreviation", limit: 1, null: false
   end
 
+  add_index "items", ["abbreviation"], name: "index_items_on_abbreviation", unique: true, using: :btree
   add_index "items", ["name"], name: "index_items_on_name", unique: true, using: :btree
 
   create_table "line_items", force: :cascade do |t|
