@@ -24,7 +24,9 @@ Scenario Outline: Save passcode AP and XM
     | 1a2b3c   | XM    | 200   |
 
 Scenario Outline: Save passcode gear
-  Given an item exists named "<item>"
+  Given the following items exist:
+    | name   | abbreviation   |
+    | <item> | <abbreviation> |
   And I am on the passcode entry page
   When I fill in the following:
     | Passcode | <passcode> |
@@ -54,8 +56,7 @@ Scenario Outline: Save multiple line items per passcode
     | Level    | <level1>    |
     | Quantity | <quantity1> |
   And I click "More"
-  Then show me the page
-  And I fill in the following:
+  And I fill in the following for the last line item:
     | Item     | <item2>     |
     | Level    | <level2>    |
     | Quantity | <quantity2> |

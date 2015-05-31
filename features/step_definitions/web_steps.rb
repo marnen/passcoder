@@ -6,12 +6,15 @@ When 'I click "$target"' do |target|
   click_link_or_button target
 end
 
-When 'I fill in the following:' do |table|
-  table.rows_hash.each do |field, value|
-    begin
-      fill_in field, with: value
-    rescue Capybara::ElementNotFound
-      select value, from: field
+When /^I fill in the following( for the last line item)?:$/ do |last, table|
+  scope = last ? '.line_item:last-of-type' : 'html'
+  within scope do
+    table.rows_hash.each do |field, value|
+      begin
+        fill_in field, with: value
+      rescue Capybara::ElementNotFound
+        select value, from: field
+      end
     end
   end
 end

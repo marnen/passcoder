@@ -4,6 +4,6 @@ end
 
 Given 'the following items exist:' do |table|
   table.hashes.each do |row|
-    FactoryGirl.create :item, name: row['name']
+    FactoryGirl.create :item, row
   end
 end
