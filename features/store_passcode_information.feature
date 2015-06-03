@@ -70,3 +70,21 @@ Scenario Outline: Save multiple line items per passcode
   Examples:
     | passcode | item1        | abbr1 | level1 | quantity1 | item2      | abbr2 | level2 | quantity2 |
     | 1multi5a | Ultra Strike | U     | 1      | 10        | Power Cube | C     | 2      | 20        |
+
+Scenario Outline: Return to form on error, with line items still populated
+  Given the following items exist:
+    | name   |
+    | <item> |
+  And I am on the passcode entry page
+  When I fill in the following:
+    | Item     | <item>     |
+    | Quantity | <quantity> |
+  And I click "Save"
+  Then I should see "Code can't be blank"
+  And I should see the following form fields:
+    | Item     | <item>     |
+    | Quantity | <quantity> |
+
+  Examples:
+    | item   | quantity |
+    | Turret | 5        |

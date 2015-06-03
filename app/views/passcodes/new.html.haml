@@ -1,3 +1,9 @@
+- if @passcode.errors.present?
+  %p= _ 'Your passcode could not be saved because of the following errors:'
+  %ul
+    - @passcode.errors.full_messages.each do |error|
+      %li= error
+
 = form_for @passcode do |f|
   = f.label :code, _('Passcode')
   = f.text_field :code

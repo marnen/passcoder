@@ -26,3 +26,17 @@ end
 Then 'I should be on $page_name' do |page_name|
   expect(page.current_path).to be == path_to(page_name)
 end
+
+Then 'I should see "$text"' do |text|
+  expect(page).to have_text text
+end
+
+Then 'I should see the following form fields:' do |table|
+  table.rows_hash.each do |field, value|
+    begin
+      expect(page).to have_field field, with: value
+    rescue RSpec::Expectations::ExpectationNotMetError
+      expect(page).to have_select field, selected: value
+    end
+  end
+end

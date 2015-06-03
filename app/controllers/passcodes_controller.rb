@@ -11,7 +11,12 @@ class PasscodesController < ApplicationController
   end
 
   def create
-    passcode = Passcode.create! params.require(:passcode).permit *Passcode.permitted_params
-    respond_with passcode
+    @passcode = Passcode.new params.require(:passcode).permit *Passcode.permitted_params
+    unless @passcode.save
+      params.require(:passcode).require(:line_items_attributes).each do |line_item|
+        @passcode.line_items.build line_item.permit *LineItem.permitted_params
+      end
+    end
+    respond_with @passcode
   end
 end
