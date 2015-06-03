@@ -19,4 +19,4 @@ Scenario Outline:
 
   Examples:
     | email           | password |
-    | joe@example.com | påssw0rd |
+    | joe@example.com | passw0rð |

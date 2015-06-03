@@ -32,15 +32,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'cells', '~> 3.11', '< 4'
 gem 'devise'
 gem 'gettext_i18n_rails'
 gem 'haml'
+gem 'responders'
 
 group :development do
   gem 'gettext', '>= 3.0.2', require: false
   gem 'guard-cucumber', require: false
   gem 'guard-rspec', require: false
   gem 'ruby_parser', require: false
+  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
@@ -59,7 +62,9 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'launchy'
+  gem 'shoulda-matchers'
 end

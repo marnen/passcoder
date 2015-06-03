@@ -1,0 +1,24 @@
+- if @passcode.errors.present?
+  %p= _ 'Your passcode could not be saved because of the following errors:'
+  %ul
+    - @passcode.errors.full_messages.each do |error|
+      %li= error
+
+= form_for @passcode do |f|
+  = f.label :code, _('Passcode')
+  = f.text_field :code
+  = f.label :ap, _('AP')
+  = f.number_field :ap
+  = f.label :xm, _('XM')
+  = f.number_field :xm
+  .line_item
+    = f.fields_for :line_items, child_index: '' do |li|
+      = li.label :item_id
+      = render_cell :item_selector, :show, form: li
+      = li.label :item_level, _('Level')
+      = li.number_field :item_level
+      = li.label :quantity
+      = li.number_field :quantity
+  = f.button _('More'), class: 'new_line_item', type: 'button'
+
+  = f.submit _('Save')

@@ -1,0 +1,9 @@
+.passcode
+  .code= passcode.code
+  .ap= _('%{ap} AP') % {ap: passcode.ap}
+  .xm= _('%{xm} XM') % {xm: passcode.xm}
+  - passcode.line_items.each do |line_item|
+    - abbreviation = line_item.item.abbreviation
+    %div{class: "#{abbreviation.downcase}#{line_item.item_level}"}
+      = line_item.quantity
+      == #{abbreviation}#{line_item.item_level}
