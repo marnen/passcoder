@@ -282,7 +282,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara-webkit
-  cells (< 4)
+  cells (~> 3.11, < 4)
   coffee-rails (~> 4.1.0)
   cucumber-rails
   database_cleaner

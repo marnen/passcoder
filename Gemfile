@@ -32,7 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'cells', '< 4'
+gem 'cells', '~> 3.11', '< 4'
 gem 'devise'
 gem 'gettext_i18n_rails'
 gem 'haml'
