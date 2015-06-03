@@ -6,7 +6,17 @@ class Passcode < ActiveRecord::Base
   validates :ap, numericality: true
   validates :xm, numericality: true
 
-  def self.permitted_params
-    @permitted_params ||= [:code, :ap, :xm, {line_items_attributes: LineItem.permitted_params}]
+  class << self
+    def new_with_line_items
+      new.tap {|passcode| passcode.line_items.build }
+    end
+
+    def permitted_params
+      @permitted_params ||= [:code, :ap, :xm, {line_items_attributes: LineItem.permitted_params}]
+    end
+
+    def with_items
+      includes line_items: :item
+    end
   end
 end
