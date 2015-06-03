@@ -1,6 +1,6 @@
 class Passcode < ActiveRecord::Base
   has_many :line_items, inverse_of: :passcode
-  accepts_nested_attributes_for :line_items, reject_if: proc {|attributes| attributes.values.any? &:blank? }
+  accepts_nested_attributes_for :line_items, reject_if: proc {|attributes| attributes[:item_id].blank? }
 
   validates :code, presence: true, uniqueness: true
   validates :ap, numericality: true
