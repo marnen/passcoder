@@ -9,6 +9,8 @@ module PathHelpers
       new_passcode_path
     when 'the passcode index page'
       passcodes_path
+    when 'the user registration page'
+      new_user_registration_path
     else
       raise ArgumentError, "No mapping defined for '#{page_name}'. Please add one in #{__FILE__}."
     end
