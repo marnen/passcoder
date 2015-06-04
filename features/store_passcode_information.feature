@@ -80,7 +80,7 @@ Scenario Outline: Return to form on error, with line items still populated
     | Item     | <item>     |
     | Quantity | <quantity> |
   And I click "Save"
-  Then I should see "Code can't be blank"
+  Then I should see "can't be blank"
   And I should see the following form fields:
     | Item     | <item>     |
     | Quantity | <quantity> |
@@ -92,7 +92,7 @@ Scenario Outline: Return to form on error, with line items still populated
 Scenario: Return to form on error with at least 1 line item
   Given I am on the passcode entry page
   When I click "Save"
-  Then I should see "Code can't be blank"
+  Then I should see "can't be blank"
   And I should see the following form fields:
     | Item     | Choose an item… |
     | Quantity | 1               |
