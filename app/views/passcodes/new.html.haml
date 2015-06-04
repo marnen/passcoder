@@ -3,14 +3,14 @@
 
 = form_for @passcode do |f|
   = f.input_div :code, label: _('Passcode')
-  = f.input_div :ap, label: _('AP') # number_field
-  = f.input_div :xm, label: _('XM') # number_field
+  = f.input_div :ap, label: _('AP')
+  = f.input_div :xm, label: _('XM')
   .line_item
     = f.fields_for :line_items, child_index: '' do |li|
       = li.label :item_id
       = render_cell :item_selector, :show, form: li
       = li.input_div :item_level, label: _('Level')
-      = li.input_div :quantity, label: _('Quantity') # number_field
+      = li.input_div :quantity
   = f.button _('More'), class: 'new_line_item', type: 'button'
 
   = f.submit _('Save')

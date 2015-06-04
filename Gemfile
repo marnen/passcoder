@@ -35,7 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'cells', '~> 3.11', '< 4'
 gem 'devise'
 gem 'foundation-rails'
-gem 'foundation_form_builder', '~> 1.0.1'
+gem 'foundation_form_builder', '~> 1.1.0'
 gem 'gettext_i18n_rails'
 gem 'haml'
 gem 'responders'
