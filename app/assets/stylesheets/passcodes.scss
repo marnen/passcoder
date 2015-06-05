@@ -1,5 +1,12 @@
 @import 'foundation_mixins';
 
+@mixin numeric {
+  @include grid-column(3);
+  @media #{$medium-up} {
+    @include grid-column(2);
+  }
+}
+
 form.new_passcode {
   @include grid-row();
   .code {
@@ -15,10 +22,7 @@ form.new_passcode {
     }
   }
   .ap, .xm {
-    @include grid-column(3);
-    @media #{$medium-up} {
-      @include grid-column(2);
-    }
+    @include numeric;
   }
   .line_item {
     @include grid-row(2);
@@ -35,10 +39,7 @@ form.new_passcode {
     }
 
     .quantity {
-      @include grid-column(3);
-      @media #{$medium-up} {
-        @include grid-column(2);
-      }
+      @include numeric;
     }
   }
 }
