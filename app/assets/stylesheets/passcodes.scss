@@ -1,0 +1,26 @@
+@import 'foundation_mixins';
+
+form.new_passcode {
+  @include grid-row();
+  .code {
+    @include grid-column(8);
+  }
+  .ap, .xm {
+    @include grid-column(2);
+  }
+  .line_item {
+    @include grid-row(2);
+
+    .item_id {
+      @include grid-column(6);
+    }
+
+    .item_level {
+      @include grid-column(3);
+    }
+
+    .quantity {
+      @include grid-column(3);
+    }
+  }
+}
