@@ -26,7 +26,8 @@ form.new_passcode {
   }
 
   .line_item {
-    @include grid-row(2);
+    @include grid-row();
+    clear: both;
 
     .item_id {
       @include grid-column(5);
@@ -48,10 +49,22 @@ form.new_passcode {
     @include grid-row();
     .add_item, .save {
       @include grid-column(5);
+      @media #{$medium-up} {
+        @include grid-column(3);
+      }
+      @media #{$large-up} {
+        @include grid-column(2)
+      }
     }
 
     .add_item {
       @include grid-column($offset: 1);
+      @media #{$medium-up} {
+        @include grid-column($offset: 3);
+      }
+      @media #{$large-up} {
+        @include grid-column($offset: 4);
+      }
     }
   }
 }
