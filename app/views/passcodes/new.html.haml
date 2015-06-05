@@ -7,7 +7,6 @@
   = f.input_div :xm, label: _('XM')
   .line_item
     = f.fields_for :line_items, child_index: '' do |li|
-      = li.label :item_id
       = render_cell :item_selector, :show, form: li
       = li.input_div :item_level, label: _('Level')
       = li.input_div :quantity
