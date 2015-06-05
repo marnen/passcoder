@@ -55,7 +55,7 @@ Scenario Outline: Save multiple line items per passcode
     | Item     | <item1>     |
     | Level    | <level1>    |
     | Quantity | <quantity1> |
-  And I click "More"
+  And I click "Add item"
   And I fill in the following for the last line item:
     | Item     | <item2>     |
     | Level    | <level2>    |
