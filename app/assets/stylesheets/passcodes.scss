@@ -24,6 +24,7 @@ form.new_passcode {
   .ap, .xm {
     @include numeric;
   }
+
   .line_item {
     @include grid-row(2);
 
@@ -40,6 +41,17 @@ form.new_passcode {
 
     .quantity {
       @include numeric;
+    }
+  }
+
+  .buttons {
+    @include grid-row();
+    .add_item, .save {
+      @include grid-column(5);
+    }
+
+    .add_item {
+      @include grid-column($offset: 1);
     }
   }
 }

@@ -1,0 +1,7 @@
+$ingress-cyan: #93ffff;
+$primary-color: $ingress-cyan;
+$button-border-color: $primary-color;
+$button-border-width: 1px;
+$button-bg-color: scale-color($button-border-color, $lightness: -85%);
+$button-font-color: $button-border-color;
+$button-function-factor: 3%;
