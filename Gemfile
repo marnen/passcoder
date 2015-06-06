@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks' -- removed because it breaks page-specific CSS.
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -34,6 +34,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'cells', '~> 3.11', '< 4'
 gem 'devise'
+gem 'foundation-rails'
+gem 'foundation_form_builder', '~> 1.1.0'
+gem 'google-webfonts'
 gem 'gettext_i18n_rails'
 gem 'haml'
 gem 'responders'

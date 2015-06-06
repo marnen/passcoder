@@ -1,13 +1,19 @@
 !!!
 %html
   %head
-    %title Passcoder
+    %title= content_for?(:title) ? yield(:title) : _('Passcoder')
     %meta(charset='utf-8')
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    = google_webfonts_link_tag :coda
+    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css")
+    = javascript_include_tag 'vendor/modernizr'
+    = javascript_include_tag 'application' # , 'data-turbolinks-track' => true
     = javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js")
     = csrf_meta_tags
   %body
+    .top-bar
+      %h1= _('Passcoder')
     #flash
       %p.notice= notice
       %p.alert= alert

@@ -1,0 +1,70 @@
+@import 'foundation_mixins';
+
+@mixin numeric {
+  @include grid-column(3);
+  @media #{$medium-up} {
+    @include grid-column(2);
+  }
+}
+
+form.new_passcode {
+  @include grid-row();
+  .code {
+    @include grid-column(6);
+    input {
+      font-size: 110%;
+    }
+    @media #{$medium-up} {
+      @include grid-column(8);
+      input {
+        font-size: 150%;
+      }
+    }
+  }
+  .ap, .xm {
+    @include numeric;
+  }
+
+  .line_item {
+    @include grid-row();
+    clear: both;
+
+    .item_id {
+      @include grid-column(5);
+      @media #{$medium-up} {
+        @include grid-column(6);
+      }
+    }
+
+    .item_level {
+      @include grid-column(4);
+    }
+
+    .quantity {
+      @include numeric;
+    }
+  }
+
+  .buttons {
+    @include grid-row();
+    .add_item, .save {
+      @include grid-column(5);
+      @media #{$medium-up} {
+        @include grid-column(3);
+      }
+      @media #{$large-up} {
+        @include grid-column(2)
+      }
+    }
+
+    .add_item {
+      @include grid-column($offset: 1);
+      @media #{$medium-up} {
+        @include grid-column($offset: 3);
+      }
+      @media #{$large-up} {
+        @include grid-column($offset: 4);
+      }
+    }
+  }
+}

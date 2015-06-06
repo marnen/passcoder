@@ -1,1 +1,1 @@
-= @form.select :item_id, @items, prompt: _('Choose an item…')
+= @form.input_div :item_id, type: :select, values: @items, field: {prompt: _('Choose an item…')}

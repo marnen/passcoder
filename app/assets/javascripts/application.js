@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require foundation
+// require turbolinks -- removed because it breaks page-specific CSS.
+
+$(function(){ $(document).foundation(); });

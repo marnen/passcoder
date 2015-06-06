@@ -1,0 +1,11 @@
+@import './colors';
+
+$coda: Coda, 'Lucida Grande', 'Helvetica Neue', Helvetica, Roboto, Geneva, Arial, sans-serif;
+$body-font-family: $coda;
+$body-bg: $bg-color;
+$body-font-color: $font-color;
+$form-label-font-color: $font-color;
+$input-bg-color: $bg-color;
+$input-focus-bg-color: $input-bg-color;
+$input-font-color: $font-color;
+$select-bg-color: $bg-color;

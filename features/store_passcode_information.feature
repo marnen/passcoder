@@ -55,7 +55,7 @@ Scenario Outline: Save multiple line items per passcode
     | Item     | <item1>     |
     | Level    | <level1>    |
     | Quantity | <quantity1> |
-  And I click "More"
+  And I click "Add item"
   And I fill in the following for the last line item:
     | Item     | <item2>     |
     | Level    | <level2>    |
@@ -80,11 +80,19 @@ Scenario Outline: Return to form on error, with line items still populated
     | Item     | <item>     |
     | Quantity | <quantity> |
   And I click "Save"
-  Then I should see "Code can't be blank"
+  Then I should see "can't be blank"
   And I should see the following form fields:
     | Item     | <item>     |
     | Quantity | <quantity> |
 
   Examples:
-    | item   | quantity |
-    | Turret | 5        |
+    | item            | quantity |
+    | Turret          | 5        |
+
+Scenario: Return to form on error with at least 1 line item
+  Given I am on the passcode entry page
+  When I click "Save"
+  Then I should see "can't be blank"
+  And I should see the following form fields:
+    | Item     | Choose an item… |
+    | Quantity | 1               |

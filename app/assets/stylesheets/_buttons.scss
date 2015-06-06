@@ -1,0 +1,8 @@
+button {
+  @include button($full-width: true);
+  padding: $button-tny;
+}
+
+input[type='submit'] {
+  @extend button;
+}

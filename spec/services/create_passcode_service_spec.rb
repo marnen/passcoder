@@ -3,7 +3,6 @@ require 'rails_helper'
 describe CreatePasscodeService do
   shared_examples_for 'a passcode with line items' do
     it 'has associated line items' do
-      debugger unless line_items_attributes && line_items_attributes[:item_id]
       line_items = passcode.line_items
       expect(line_items.size).to be == 1
       expect(line_items.first.attributes.symbolize_keys).to include line_items_attributes
@@ -41,6 +40,15 @@ describe CreatePasscodeService do
 
       it 'retains the error messages' do
         expect(passcode.errors.messages).not_to be_empty
+      end
+
+      context 'no line items' do
+        let(:extra_attributes) { {} }
+
+        it 'creates a blank line item' do
+          expect(passcode.line_items.size).to be == 1
+          expect(passcode.line_items.first.item_id).to be_nil
+        end
       end
     end
   end
