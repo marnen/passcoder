@@ -1,0 +1,11 @@
+.top-bar {
+  background-color: $ingress-cyan-dark;
+
+  h1 {
+    color: $font-color;
+    font: {
+      size: 165%;
+      weight: bolder;
+    }
+  }
+}

@@ -12,6 +12,8 @@
     = javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js")
     = csrf_meta_tags
   %body
+    .top-bar
+      %h1= _('Passcoder')
     #flash
       %p.notice= notice
       %p.alert= alert
